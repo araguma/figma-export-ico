@@ -1,0 +1,22 @@
+{
+    "name": "figma-export-ico",
+    "version": "1.0.0",
+    "description": "Figma plugin for exporting frames as ico files",
+    "keywords": [
+        "figma",
+        "plugin",
+        "ico"
+    ],
+    "license": "MIT",
+    "author": "araguma",
+    "main": "dist/index.js",
+    "scripts": {
+        "copy": "npx ncp src/manifest.json dist/manifest.json && npx ncp src/ui.html dist/ui.html",
+        "build": "npx tsc && npm run copy"
+    },
+    "devDependencies": {
+        "@figma/plugin-typings": "^1.79.0",
+        "ncp": "^2.0.0",
+        "typescript": "^5.2.2"
+    }
+}
