@@ -52,6 +52,9 @@ async function convertICO(node: SceneNode) {
 async function main() {
     const selection = figma.currentPage.selection;
 
+    if(selection.length === 0)
+        return error('No items selected');
+
     figma.showUI(__html__, { visible: false });
     figma.ui.postMessage({
         type: 'export',
