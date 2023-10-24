@@ -1,29 +1,21 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Export Ico</title>
-        <script>
-            window.onmessage = (event) => {
-                const message = event.data.pluginMessage;
-                switch(message.type) {
-                    case 'export':
-                        message.data.forEach(data => download(data.name, data.buffer));
-                        parent.postMessage({ pluginMessage: { type: 'close' } }, '*');
-                        break;
-                }
-            };
+<script>
+    window.onmessage = (event) => {
+        const message = event.data.pluginMessage;
+        switch(message.type) {
+            case 'export':
+                message.data.forEach(data => download(data.name, data.buffer));
+                parent.postMessage({ pluginMessage: { type: 'close' } }, '*');
+                break;
+        }
+    };
 
-            function download(name, data) {
-                const a = document.createElement('a');
-                const url = URL.createObjectURL(new Blob([data]));
-                a.setAttribute('download', name);
-                a.setAttribute('href', url);
-                a.click();
-                URL.revokeObjectURL(url)
-            }
-        </script>
-    </head>
-    <body>
-        <h1>asd</h1>
-    </body>
-</html>
+    function download(name, data) {
+        const a = document.createElement('a');
+        const url = URL.createObjectURL(new Blob([data]));
+        a.setAttribute('download', name);
+        a.setAttribute('href', url);
+        a.click();
+        URL.revokeObjectURL(url)
+    }
+</script>
