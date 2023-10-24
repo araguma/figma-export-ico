@@ -59,7 +59,7 @@ async function convertICO(node: SceneNode) {
         icoDataView.setUint8(offset + 2, 0);
         icoDataView.setUint8(offset + 3, 0);
         icoDataView.setUint16(offset + 4, 1, true);
-        icoDataView.setUint16(offset + 6, 8, true);
+        icoDataView.setUint16(offset + 6, 0, true);
         icoDataView.setUint32(offset + 8, pngData[i].length, true);
         icoDataView.setUint32(offset + 12, pngOffset, true);
     }
